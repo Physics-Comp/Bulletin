@@ -17,10 +17,71 @@
 
     <script src="https://use.fontawesome.com/3f1efa9c9c.js"></script>
 
-    <!-- JavaScript Link -->
-    <link rel="stylesheet" href="JavaScript - Bulletin/script.js">
-
     <!-- CSS Link -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel= "stylesheet" type= "text/css" href= "../static/styles/styles.css">
 
   </head>
+
+
+  <body>
+    <section id="title">
+      <div class="container-fluid">
+      <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">Bulletin</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="navbar-item dropdown title-dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+                </a>
+                <div class="dropdown-menu font-dropdown" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Products</a>
+                  <a class="dropdown-item" href="#">Services</a>
+                  <a class="dropdown-item" href="#">Live Events</a>
+                  <a class="dropdown-item" href="#">Enterprise</a>
+                  <a class="dropdown-item" href="#">Local Listings</a>
+                </div>
+              </li>
+              <li class="navbar-item dropdown title-dropdown">
+                <a class="nav-link dropdown-toggle font-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Deals
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Bussiness Discounts</a>
+                  <a class="dropdown-item" href="#">Bulletin Card</a>
+                  <a class="dropdown-item" href="#">Promotionals</a>
+                </div>
+              </li>
+              <li class="navbar-item dropdown title-dropdown">
+                <a class="nav-link dropdown-toggle font-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  What's New
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Local News</a>
+                  <a class="dropdown-item" href="#">Boulder Finds</a>
+                  <a class="dropdown-item" href="#">Public Announcements</a>
+                </div>
+              </li>
+            </ul>
+            <form class="form-inline mr-4">
+              <input class="form-control mr-sm-2" style="width:400px;" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-info form-style" type="submit"><i class="fa fa-search search-icon" aria-hidden="true"></i></button>
+            </form>
+            <div class="dropdown sign-dropdown">
+              <button class="btn btn-outline-info dropdown-toggle form-style" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></i>  Sign In</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/login">Sign In</a>
+                <a class="dropdown-item" href="#">Create Account</a>
+                <a class="dropdown-item" href="#">Gift Card</a>
+                <a class="dropdown-item" href="#">Shop Again</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </nav>
+  </section>
