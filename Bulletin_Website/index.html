@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bulletin</title>
+
+    <!-- Font link -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora&family=Sriracha&display=swap" rel="stylesheet">
+
+    <!-- BootStrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- BootStrap JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/3f1efa9c9c.js"></script>
+
+    <!-- JavaScript Link -->
+    <link rel="stylesheet" href="JavaScript - Bulletin/script.js">
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+
+
+  <body>
+    <section id="title">
+      <div class="container-fluid">
+      <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="#">Bulletin</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="navbar-item dropdown title-dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+                </a>
+                <div class="dropdown-menu font-dropdown" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Products</a>
+                  <a class="dropdown-item" href="#">Services</a>
+                  <a class="dropdown-item" href="#">Live Events</a>
+                  <a class="dropdown-item" href="#">Enterprise</a>
+                  <a class="dropdown-item" href="#">Local Listings</a>
+                </div>
+              </li>
+              <li class="navbar-item dropdown title-dropdown">
+                <a class="nav-link dropdown-toggle font-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Deals
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Bussiness Discounts</a>
+                  <a class="dropdown-item" href="#">Bulletin Card</a>
+                  <a class="dropdown-item" href="#">Promotionals</a>
+                </div>
+              </li>
+              <li class="navbar-item dropdown title-dropdown">
+                <a class="nav-link dropdown-toggle font-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  What's New
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Local News</a>
+                  <a class="dropdown-item" href="#">Boulder Finds</a>
+                  <a class="dropdown-item" href="#">Public Announcements</a>
+                </div>
+              </li>
+            </ul>
+            <form class="form-inline mr-4">
+              <input class="form-control mr-sm-2" style="width:400px;" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-info form-style" type="submit"><i class="fa fa-search search-icon" aria-hidden="true"></i></button>
+            </form>
+            <div class="dropdown sign-dropdown">
+              <button class="btn btn-outline-info dropdown-toggle form-style" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></i>  Sign In</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Sign In</a>
+                <a class="dropdown-item" href="#">Create Account</a>
+                <a class="dropdown-item" href="#">Gift Card</a>
+                <a class="dropdown-item" href="#">Shop Again</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- Jumbotron Of Flatirons -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-2 solgan-contain">
+            <p class="slogan">Live, Shop, Support Local</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!--What Bulletin Offers -->
+<div class="container-fluid one">
+  <div class="row sub-cat">
+    <div class="col-4">
+      <div class="card car-round">
+        <img class="figure-img img-fluid rounded sub-pics" src="images/pearlstreet01.jpg" alt="">
+        <div class="rounded-bottom" style="padding-top:0px; border-radius:0px 0px 25px 25px;">
+          <h5 class="title">Local Goods</h5>
+          <p class="card-text">Search through hundredes of products made here in Boulder.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card car-round">
+        <img class="figure-img img-fluid rounded sub-pics" src="images/moving.jpg" alt="">
+        <div class="rounded-bottom" style="padding-top:0px; border-radius:0px 0px 25px 25px;">
+          <h5 class="title">Local Services</h5>
+          <p class="card-text">Check ratings and book appointments online.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card car-round">
+        <img class="figure-img img-fluid rounded sub-pics" src="images/redrocks.png" alt="">
+        <div class="rounded-bottom" style="padding-top:0px; border-radius:0px 0px 25px 25px;">
+          <h5 class="title">Local Events</h5>
+          <p class="card-text">Musical performances, meet ups and much more!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Community Section -->
+ <section id="Community">
+  <div class="Boulder-Community">
+    <h4 class="com-center">Community Centered</h4>
+    <p class="para-com">Be apart of the Boulder community, whether its local festivities, or
+      volunteering, you can find it here on Bulletin!
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="card car-round">
+        <img class="figure-img img-fluid entertain sub-pics1" src="images/entertainment.jpg" alt="Local-Eats">
+        <div class="rounded-bottom" style="padding-top:0px; border-radius:0px 0px 25px 25px;">
+          <h5 class="title">Entertainment</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-6">
+          <div class="card side-card car-round">
+            <img class="figure-img img-fluid rounded sub-pics1" src="images/kitchen.jpg" alt="entertainment">
+            <div class="rounded-bottom" style="padding-top:0px; border-radius:0px 0px 25px 25px;">
+              <h5 class="title">Local Eats</h5>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card side-card car-round">
+            <img class="figure-img img-fluid rounded sub-pics1" src="images/running.jpg" alt="Running">
+            <div class="rounded-bottom" style="padding-top:0px; border-radius:0px 0px 25px 25px;">
+              <h5 class="title">Get Active</h5>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-12">
+            <div class="card car-round">
+              <img class="figure-img img-fluid rounded sub-pics1" src="images/service_community.jpg" alt="Running">
+              <div class="rounded-bottom" style="padding-top:0px; border-radius:0px 0px 25px 25px;">
+                <h5 class="title">Volunteering</h5>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- Seasonal -->
+
+
+</body>
+</html>
