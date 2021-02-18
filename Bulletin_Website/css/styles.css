@@ -1,0 +1,107 @@
+/* Navigation Bar */
+.navbar-brand{
+  font-family: 'Sriracha';
+  font-weight: bold;
+  font-size: 35px;
+}
+.title-dropdown{
+  font-family: 'Sora';
+  font-weight: bold;
+  font-size: 20px;
+  color: #FFFFFF
+}
+.font-dropdown{
+  font-family: 'Sora';
+  font-weight: bold;
+}
+.mx-auto{
+  padding-left: 150px;
+}
+.sign-dropdown{
+  padding-right: 150px;
+}
+.search-icon{
+  width:30px;
+}
+.form-style{
+  background-color: #d4f3ef;
+}
+#title{
+  background-color: #63b7af;
+}
+/* Jumbotron */
+.jumbotron{
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/80/Flatirons_Winter_Sunrise_edit_2.jpg');
+  background-size: cover;
+  padding-bottom: 250px;
+}
+.slogan{
+  font-family: 'Sora';
+  font-weight: bold;
+  color: #FFFFFF;
+  font-size: 30px;
+  width: 300px;
+  padding-left: 100px;
+}
+.solgan-contain{
+  padding-left: 0px;
+  width:100%;
+}
+
+/* Carousel of images/messages */
+.car-round{
+  border-radius: 25px 25px 25px 25px !important;
+}
+.sub-pics{
+  width: 520px;
+  height: 345px;
+  border-radius: 25px 25px 0px 0px !important;
+  box-shadow: 0px 0px 5px 3px rgba(219,219,219,1);
+
+}
+.one{
+  padding:0.5% 8%;
+}
+.figcap{
+  border: 1px solid rgba(242,242,242,0.60);
+  border-radius: 0px 0px 25px 25px !important;
+}
+.card-text{
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+.title{
+  padding-left: 20px;
+}
+/* Community */
+#Community{
+  padding:0.5% 8%;
+  margin-top: 50px;
+  background-color: #71c9ce;
+  border-bottom-width: 50px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.side-card{
+  margin-bottom: 30px;
+}
+.entertain{
+  height: 615px;
+  width: 782px;
+}
+.sub-pics1{
+  border-radius: 25px 25px 0px 0px !important;
+}
+.com-center{
+  font-family: 'Sora';
+  font-weight: bold;
+  font-size:30px;
+  color: white;
+}
+.para-com{
+  font-family: 'Sora';
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+}
