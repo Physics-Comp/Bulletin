@@ -17,9 +17,10 @@ def base():
 def base2():
     return render_template("login.html")
 
-@app.route('/view')
+@app.route('/submit_credentials', methods=['POST'])
 def base3():
-    return render_template("read.html")
+	creds = dict(request.form)
+    return creds
 
 @app.route('/mongodb', methods=['POST'])
 def poster():
