@@ -20,7 +20,7 @@ def base2():
 @app.route('/submit_credentials', methods=['POST'])
 def base3():
 	creds = dict(request.form)
-    return creds
+	return creds
 
 @app.route('/mongodb', methods=['POST'])
 def poster():
