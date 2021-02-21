@@ -30,9 +30,18 @@ class User(UserMixin, db.Document):
 def load_user(user_id):
     return User.objects(pk=user_id).first()
 
-class RegForm(FlaskForm):
+class LoginForm(FlaskForm):
     email = StringField('email',  validators=[InputRequired(), Email(message='Invalid email'), Length(max=30)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=20)])
+
+class RegForm(FlaskForm):
+    email = StringField('Email Address', [validators.Length(min=6, max=35)])
+    password = PasswordField('Password', [
+        validators.DataRequired(),
+        validators.EqualTo('confirm', message='Passwords must match')
+    ])
+    confirm = PasswordField('Repeat Password')
+    accept_tos = BooleanField('I accept the TOS', [validators.DataRequired()])
 
 @app.route('/')
 def base():
@@ -55,7 +64,7 @@ def register():
 def login():
     if current_user.is_authenticated == True:
         return redirect(url_for('dashboard'))
-    form = RegForm()
+    form = LoginForm()
     if request.method == 'POST':
         if form.validate():
             check_user = User.objects(email=form.email.data).first()
