@@ -48,7 +48,7 @@ def register():
                 hashpass = generate_password_hash(form.password.data, method='sha256')
                 hey = User(form.email.data,hashpass).save()
                 login_user(hey)
-                return redirect(url_for('dashboard'))
+                return redirect('/dashboard')
     return render_template('register.html', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
