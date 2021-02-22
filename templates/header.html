@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bulletin</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ user_manager.USER_APP_NAME }}</title>
 
+  
+
+    <!-- In-lining styles to avoid needing a separate .css file -->
+    <style>
+        hr { border-color: #cccccc; margin: 0; }
+        .no-margins { margin: 0px; }
+        .with-margins { margin: 10px; }
+        .col-centered { float: none; margin: 0 auto; }
+    </style>
     <!-- Font link -->
     <link href="https://fonts.googleapis.com/css2?family=Sora&family=Sriracha&display=swap" rel="stylesheet">
 
@@ -19,13 +30,20 @@
 
     <!-- CSS Link -->
     <link rel= "stylesheet" type= "text/css" href= "../static/styles/styles.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
 
+    {# *** Allow sub-templates to insert extra html to the head section *** #}
+    {% block extra_css %}{% endblock %}
   </head>
-
 
   <body>
     <section id="title">
-      <div class="container-fluid">
+      <div class="container-fluid ">
       <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="/">Bulletin</a>
@@ -72,15 +90,27 @@
               <input class="form-control mr-sm-2" style="width:400px;" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-info form-style" type="submit"><i class="fa fa-search search-icon" aria-hidden="true"></i></button>
             </form>
+            {% if call_or_get(current_user.is_authenticated) %}
+            <div class="dropdown sign-dropdown">
+              <button class="btn btn-outline-info dropdown-toggle form-style" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></i> {{ current_user.username or current_user.email }}</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/members">My Account</a>
+                <a class="dropdown-item" href="#">Gift Card</a>
+                <a class="dropdown-item" href="#">Shop Again</a>
+                <a class="dropdown-item" href="{{ url_for('user.logout') }}">Log Out</a>
+              </div>
+            </div>
+            {% else %}
             <div class="dropdown sign-dropdown">
               <button class="btn btn-outline-info dropdown-toggle form-style" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></i>  Sign In</button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/login">Sign In</a>
-                <a class="dropdown-item" href="/register">Create Account</a>
+                <a class="dropdown-item" href="{{ url_for('user.login') }}">Sign In</a>
+                <a class="dropdown-item" href="{{ url_for('user.register') }}">Create Account</a>
                 <a class="dropdown-item" href="#">Gift Card</a>
                 <a class="dropdown-item" href="#">Shop Again</a>
               </div>
             </div>
+            {% endif %}
           </div>
       </div>
     </nav>

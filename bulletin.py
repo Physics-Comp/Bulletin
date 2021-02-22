@@ -1,84 +1,81 @@
-from datetime import datetime
-from pytz import timezone
-from flask import Flask, render_template, request, redirect, url_for
-from flask_mongoengine import MongoEngine, Document
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
-from wtforms.validators import Email, Length, InputRequired
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user, validators
+from flask import Flask, render_template_string, render_template, redirect, url_for
+from flask_mongoengine import MongoEngine
+from flask_user import login_required, UserManager, UserMixin
+from wtforms import StringField, SubmitField
 
-app = Flask(__name__)
 
-app.config['MONGODB_SETTINGS'] = {
-    'db': 'TASKS',
-    'host': 'mongodb://localhost:27017'
-}
+# Class-based application configuration
+class ConfigClass(object):
+    """ Flask application config """
 
-db = MongoEngine(app)
-app.config['SECRET_KEY'] = 'issacnewton'
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'login'
+    # Flask settings
+    SECRET_KEY = 'issacnewton'
 
-class User(UserMixin, db.Document):
-    meta = {'collection': 'authentication'}
-    email = db.StringField(max_length=30)
-    password = db.StringField()
+    # Flask-MongoEngine settings
+    MONGODB_SETTINGS = {
+        'db': 'bulletin',
+        'host': 'mongodb://dc0:27017'
+    }
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.objects(pk=user_id).first()
+    # Flask-User settings
+    USER_APP_NAME = "Bulletin"      # Shown in and email templates and page footers
+    USER_ENABLE_EMAIL = False      # Disable email authentication
+    USER_ENABLE_USERNAME = True    # Enable username authentication
+    USER_REQUIRE_RETYPE_PASSWORD = False    # Simplify register form
 
-class LoginForm(FlaskForm):
-    email = StringField('email',  validators=[InputRequired(), Email(message='Invalid email'), Length(max=30)])
-    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=20)])
 
-class RegForm(FlaskForm):
-    email = StringField('Email Address', [validators.Length(min=6, max=35)])
-    password = PasswordField('Password', [
-        validators.DataRequired(),
-        validators.EqualTo('confirm', message='Passwords must match')
-    ])
-    confirm = PasswordField('Repeat Password')
-    accept_tos = BooleanField('I accept the TOS', [validators.DataRequired()])
+def create_app():
+    """ Flask application factory """
+    
+    # Setup Flask and load app.config
+    app = Flask(__name__)
+    app.config.from_object(__name__+'.ConfigClass')
 
-@app.route('/')
-def base():
-    return render_template("index.html")
+    # Setup Flask-MongoEngine
+    db = MongoEngine(app)
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    form = RegForm()
-    if request.method == 'POST':
-        if form.validate():
-            existing_user = User.objects(email=form.email.data).first()
-            if existing_user is None:
-                hashpass = generate_password_hash(form.password.data, method='sha256')
-                hey = User(form.email.data,hashpass).save()
-                login_user(hey)
-                return redirect('/dashboard')
-    return render_template('register.html', form=form)
+    # Define the User document.
+    # NB: Make sure to add flask_user UserMixin !!!
+    class User(db.Document, UserMixin):
+        active = db.BooleanField(default=True)
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if current_user.is_authenticated == True:
-        return redirect(url_for('dashboard'))
-    form = LoginForm()
-    if request.method == 'POST':
-        if form.validate():
-            check_user = User.objects(email=form.email.data).first()
-            if check_user:
-                if check_password_hash(check_user['password'], form.password.data):
-                    login_user(check_user)
-                    return redirect(url_for('dashboard'))
-    return render_template('login.html', form=form)
+        # User authentication information
+        username = db.StringField(default='')
+        password = db.StringField()
 
-@app.route('/logout', methods = ['GET'])
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for('login'))
+        # User information
+        first_name = db.StringField(default='')
+        last_name = db.StringField(default='')
+
+        # Relationships
+        roles = db.ListField(db.StringField(), default=[])
+
+    # Setup Flask-User and specify the User data-model
+    user_manager = UserManager(app, db, User)
+
+    @app.route('/')
+    def home():
+        return render_template("index.html")
+
+    # The Members page is only accessible to authenticated users via the @login_required decorator
+    @app.route('/members')
+    @login_required    # User must be authenticated
+    def member_page():
+        # String-based templates
+        return render_template_string("""
+            {% extends "flask_user_layout.html" %}
+            {% block content %}
+                <h2>Members page</h2>
+                <p><a href={{ url_for('user.register') }}>Register</a></p>
+                <p><a href={{ url_for('user.login') }}>Sign in</a></p>
+                <p><a href=/>Home page</a> (accessible to anyone)</p>
+                <p><a href={{ url_for('member_page') }}>Member page</a> (login required)</p>
+                <p><a href={{ url_for('user.logout') }}>Sign out</a></p>
+            {% endblock %}
+            """)
+
+    return app
 
 if __name__ == '__main__':
+    app = create_app()
     app.run(debug=True, port=5555, host='0.0.0.0')

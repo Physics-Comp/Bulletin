@@ -105,3 +105,29 @@
   color: white;
   font-size: 20px;
 }
+
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the label to display next to the inputs */
+label {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #63b7af;
+  color: white;
+  border: none;
+  cursor: pointer;
+  float: left;
+}
