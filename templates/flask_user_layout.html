@@ -5,25 +5,39 @@
 <!-- Bootstrap -->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+<script>
+    $(document).ready(function() {
+setTimeout(function() {
+    $('.alert').fadeOut('slow');
+}, 2000); // <-- time in milliseconds
+});
+</script>
+
+<style>
+.overlay{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  height: 25%;
+  z-index: 10;
+}
+</style>
+
 <body>
-    <div id="main-div" class="with-margins">
-    {# One-time system messages called Flash messages #}
-    {% block flash_messages %}
-        {%- with messages = get_flashed_messages(with_categories=true) -%}
+    <div class="flashwrapper overlay">
+        {% with messages = get_flashed_messages(with_categories=True) %}
             {% if messages %}
                 {% for category, message in messages %}
-                    {% if category=='error' %}
-                        {% set category='danger' %}
-                    {% endif %}
-                    <div class="alert alert-{{category}}">{{ message|safe }}</div>
+                    <div id=flashwrapper class="alert alert-{{ category }} alert-dismissible" role="alert">{{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick="close('flashwrapper')">
+                    <span aria-hidden="true">&times;</span>
+                    </div>
                 {% endfor %}
             {% endif %}
-        {%- endwith %}
-    {% endblock %}
-
-    {% block main %}
-        {% block content %}{% endblock %}
-    {% endblock %}
+        {% endwith %}
     </div>
 
 
