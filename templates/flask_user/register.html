@@ -11,7 +11,6 @@
     {% set field = form.username if user_manager.USER_ENABLE_USERNAME else form.email %}
     <div class="form-group {% if field.errors %}has-error{% endif %}">
         {# Label on left, "Already registered? Sign in." on right #}
-        <div class="row">
             <div class="col-xs-6">
                 <label for="{{ field.id }}" class="control-label">{{ field.label.text }}</label>
             </div>
@@ -21,7 +20,6 @@
                         {%trans%}Already registered? Sign in.{%endtrans%}</a>
                 {% endif %}
             </div>
-        </div>
         {{ field(class_='form-control', tabindex=210) }}
         {% if field.errors %}
             {% for e in field.errors %}

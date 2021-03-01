@@ -1,108 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ user_manager.USER_APP_NAME }}</title>
-
-    <!-- Font link -->
-    <link href="https://fonts.googleapis.com/css2?family=Sora&family=Sriracha&display=swap" rel="stylesheet">
-
-    <!-- BootStrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <!-- BootStrap JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-    <script src="https://use.fontawesome.com/3f1efa9c9c.js"></script>
-
-    <!-- CSS Link -->
-    <link rel= "stylesheet" type= "text/css" href= "../static/styles/styles.css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{{ user_manager.USER_APP_NAME }}</title>
+      <!-- Font link -->
+      <link href="https://fonts.googleapis.com/css2?family=Sora&family=Sriracha&display=swap" rel="stylesheet">
+      <!-- BootStrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <!-- BootStrap JavaScript -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      <script src="https://use.fontawesome.com/3f1efa9c9c.js"></script>
+      <!-- CSS Link -->
+      <link rel= "stylesheet" type= "text/css" href= "../static/styles/styles.css">
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
-    <![endif]-->
-
-    {# *** Allow sub-templates to insert extra html to the head section *** #}
-    {% block extra_css %}{% endblock %}
-  </head>
-
-  <body>
-    <section id="title">
-      <div class="container-fluid ">
-      <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href="/">Bulletin</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="navbar-item dropdown title-dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Categories
-                </a>
-                <div class="dropdown-menu font-dropdown" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Products</a>
-                  <a class="dropdown-item" href="#">Services</a>
-                  <a class="dropdown-item" href="#">Live Events</a>
-                  <a class="dropdown-item" href="#">Enterprise</a>
-                  <a class="dropdown-item" href="#">Local Listings</a>
-                </div>
-              </li>
-              <li class="navbar-item dropdown title-dropdown">
-                <a class="nav-link dropdown-toggle font-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Deals
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Bussiness Discounts</a>
-                  <a class="dropdown-item" href="#">Bulletin Card</a>
-                  <a class="dropdown-item" href="#">Promotionals</a>
-                </div>
-              </li>
-              <li class="navbar-item dropdown title-dropdown">
-                <a class="nav-link dropdown-toggle font-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  What's New
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Local News</a>
-                  <a class="dropdown-item" href="#">Boulder Finds</a>
-                  <a class="dropdown-item" href="#">Public Announcements</a>
-                </div>
-              </li>
-            </ul>
-            <form class="form-inline mr-4">
-              <input class="form-control mr-sm-2" style="width:400px;" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-info form-style" type="submit"><i class="fa fa-search search-icon" aria-hidden="true"></i></button>
-            </form>
-            {% if call_or_get(current_user.is_authenticated) %}
-            <div class="dropdown sign-dropdown">
-              <button class="btn btn-outline-info dropdown-toggle form-style" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></i> {{ current_user.username or current_user.email }}</button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/members">My Account</a>
-                <a class="dropdown-item" href="#">Gift Card</a>
-                <a class="dropdown-item" href="#">Shop Again</a>
-                <a class="dropdown-item" href="{{ url_for('user.logout') }}">Log Out</a>
-              </div>
-            </div>
-            {% else %}
-            <div class="dropdown sign-dropdown">
-              <button class="btn btn-outline-info dropdown-toggle form-style" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></i>  Sign In</button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ url_for('user.login') }}">Sign In</a>
-                <a class="dropdown-item" href="{{ url_for('user.register') }}">Create Account</a>
-                <a class="dropdown-item" href="#">Gift Card</a>
-                <a class="dropdown-item" href="#">Shop Again</a>
-              </div>
-            </div>
-            {% endif %}
-          </div>
-      </div>
-    </nav>
-  </section>
+      <![endif]-->
+      {# *** Allow sub-templates to insert extra html to the head section *** #}
+      {% block extra_css %}{% endblock %}
+   </head>
+   <body>
+      <section id="title">
+         <div class="container-fluid ">
+            <!-- Navigation Bar -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+               <a class="navbar-brand" href="/">Bulletin</a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="navbar-item dropdown title-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                        </a>
+                        <div class="dropdown-menu font-dropdown" aria-labelledby="navbarDropdownMenuLink">
+                           <a class="dropdown-item" href="#">Products</a>
+                           <a class="dropdown-item" href="#">Services</a>
+                           <a class="dropdown-item" href="#">Live Events</a>
+                           <a class="dropdown-item" href="#">Enterprise</a>
+                           <a class="dropdown-item" href="#">Local Listings</a>
+                        </div>
+                     </li>
+                     <li class="navbar-item dropdown title-dropdown">
+                        <a class="nav-link dropdown-toggle font-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Deals
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           <a class="dropdown-item" href="#">Bussiness Discounts</a>
+                           <a class="dropdown-item" href="#">Bulletin Card</a>
+                           <a class="dropdown-item" href="#">Promotionals</a>
+                        </div>
+                     </li>
+                     <li class="navbar-item dropdown title-dropdown">
+                        <a class="nav-link dropdown-toggle font-dropdown" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        What's New
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           <a class="dropdown-item" href="#">Local News</a>
+                           <a class="dropdown-item" href="#">Boulder Finds</a>
+                           <a class="dropdown-item" href="#">Public Announcements</a>
+                        </div>
+                     </li>
+                  </ul>
+                  <form class="form-inline mr-4">
+                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                     <button class="btn btn-outline-info form-style" type="submit"><i class="fa fa-search search-icon" aria-hidden="true"></i></button>
+                  </form>
+                  {% if call_or_get(current_user.is_authenticated) %}
+                  <div class="dropdown sign-dropdown">
+                     <button class="btn btn-outline-info dropdown-toggle form-style" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></i> {{ current_user.username or current_user.email }}</button>
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/members">My Account</a>
+                        <a class="dropdown-item" href="#">Gift Card</a>
+                        <a class="dropdown-item" href="#">Shop Again</a>
+                        <a class="dropdown-item" href="{{ url_for('user.logout') }}">Log Out</a>
+                     </div>
+                  </div>
+                  {% else %}
+                  <div class="dropdown sign-dropdown">
+                     <button class="btn btn-outline-info dropdown-toggle form-style" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></i>  Sign In</button>
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ url_for('user.login') }}">Sign In</a>
+                        <a class="dropdown-item" href="{{ url_for('user.register') }}">Create Account</a>
+                        <a class="dropdown-item" href="#">Gift Card</a>
+                        <a class="dropdown-item" href="#">Shop Again</a>
+                     </div>
+                  </div>
+                  {% endif %}
+               </div>
+         </div>
+         </nav>
+      </section>
